@@ -1,0 +1,9 @@
+051a41b996874c139f97e9387602ce0f *DESCRIPTION
+4b8dbd0a2420f748f9eb2694af8ddc4e *NAMESPACE
+c5c9fa5bcd9c3105fa92b9953a6f78a3 *R/DML.R
+b29247da84400f2716bdb288dcf01d8b *man/dml_bagging.Rd
+8c63c03db803ea4f3f01f878408b46f9 *man/dml_boosting.Rd
+2e968fb5c692ef7e8353c2f8c5357997 *man/dml_ensemble_lm.Rd
+058bf803884dc1e9283f4a98b255eaab *man/dml_ensemble_rf.Rd
+480a6307c656125280b9d62117857a40 *man/dml_neural_network.Rd
+f32d6d335a5f9d6f8f12e887838ebdce *man/dml_random_forest.Rd
