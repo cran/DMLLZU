@@ -9,6 +9,7 @@ dml_boosting <- function(y,x,d,data,sed=123) {
 
 #split the sample into two parts
 #library(caret)
+options (warn = -1)
 set.seed(sed)
 trainindex=createDataPartition(d,p=0.5,list=F)
 data1=data[trainindex,]
@@ -104,8 +105,9 @@ tAll=beAll/seAll
 message("-----------------------------------------------------------","\n")
 message("Double machine learning 1 (boosting, 2-folds):","\n")
 message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-message(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
-            be-1.96*se,be+1.96*se),digits=4)
+cat(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
+            be-1.96*se,be+1.96*se),"\n")
+
 
 message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
 message("-----------------------------------------------------------","\n")
@@ -116,8 +118,8 @@ message("-----------------------------------------------------------","\n")
 message("-----------------------------------------------------------","\n")
 message("Double machine learning 2 (boosting, 2-folds):","\n")
 message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-message(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
-            beAll-1.96*seAll,beAll+1.96*seAll),digits=4)
+cat(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
+            beAll-1.96*seAll,beAll+1.96*seAll),"\n")
 
 message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
 message("-----------------------------------------------------------","\n")
@@ -126,7 +128,7 @@ message("-----------------------------------------------------------","\n")
 
 dml_neural_network <- function( y,x,d,data,sed=123) {
   #split the sample into two parts
-
+  options (warn = -1)
   set.seed(sed)
   #library(caret)
   trainindex=createDataPartition(d,p=0.5,list=F)
@@ -232,8 +234,8 @@ dml_neural_network <- function( y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 1 (nuetral networks , 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
-              be-1.96*se,be+1.96*se),digits=4)
+  cat(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
+              be-1.96*se,be+1.96*se),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -244,8 +246,8 @@ dml_neural_network <- function( y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 2 (nuetral networks, 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
-              beAll-1.96*seAll,beAll+1.96*seAll),digits=4)
+  cat(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
+              beAll-1.96*seAll,beAll+1.96*seAll),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -254,6 +256,7 @@ dml_neural_network <- function( y,x,d,data,sed=123) {
 dml_random_forest<- function(y,x,d,data,sed=123) {
   #split the sample into two parts
   #library(caret)
+  options (warn = -1)
   set.seed(sed)
   trainindex=createDataPartition(d,p=0.5,list=F)
   data1=data[trainindex,]
@@ -348,8 +351,8 @@ dml_random_forest<- function(y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 1 (random forest , 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
-              be-1.96*se,be+1.96*se),digits=4)
+  cat(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
+              be-1.96*se,be+1.96*se),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -360,8 +363,8 @@ dml_random_forest<- function(y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 2 (random forest, 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
-              beAll-1.96*seAll,beAll+1.96*seAll),digits=4)
+  cat(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
+              beAll-1.96*seAll,beAll+1.96*seAll),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -371,6 +374,7 @@ dml_random_forest<- function(y,x,d,data,sed=123) {
 dml_bagging <- function(y,x,d,data,sed=123) {
   #split the sample into two parts
   #library(caret)
+  options (warn = -1)
   set.seed(sed)
   trainindex=createDataPartition(d,p=0.5,list=F)
   data1=data[trainindex,]
@@ -466,8 +470,10 @@ dml_bagging <- function(y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 1 (bagging, 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
-              be-1.96*se,be+1.96*se),digits=4)
+  cat(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
+              be-1.96*se,be+1.96*se),"\n")
+
+
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -478,8 +484,8 @@ dml_bagging <- function(y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 2 (bagging, 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
-              beAll-1.96*seAll,beAll+1.96*seAll),digits=4)
+  cat(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
+              beAll-1.96*seAll,beAll+1.96*seAll),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -488,6 +494,7 @@ dml_bagging <- function(y,x,d,data,sed=123) {
 
 dml_ensemble_lm <- function(y,x,d,data,sed=123) {
   #split the sample into two parts
+  options (warn = -1)
   set.seed(sed)
   #library(caret)
   trainindex=createDataPartition(d,p=0.5,list=F)
@@ -711,8 +718,8 @@ dml_ensemble_lm <- function(y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 1 (ensemble learning , 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
-              be-1.96*se,be+1.96*se),digits=4)
+  cat(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
+              be-1.96*se,be+1.96*se),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -723,8 +730,8 @@ dml_ensemble_lm <- function(y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 2 (ensemble learning, 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
-              beAll-1.96*seAll,beAll+1.96*seAll),digits=4)
+  cat(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
+              beAll-1.96*seAll,beAll+1.96*seAll),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -733,6 +740,7 @@ dml_ensemble_lm <- function(y,x,d,data,sed=123) {
 
 dml_ensemble_rf<- function(y,x,d,data,sed=123) {
   #split the sample into two parts
+  options (warn = -1)
   set.seed(sed)
   #library(caret)
   trainindex=createDataPartition(d,p=0.5,list=F)
@@ -956,8 +964,8 @@ dml_ensemble_rf<- function(y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 1 (ensemble learning , 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
-              be-1.96*se,be+1.96*se),digits=4)
+  cat(cbind(theta=be,se.robust=se,t.value=t,pvalue=round(2*(1-pnorm(abs(be/se))),5),
+              be-1.96*se,be+1.96*se),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")
@@ -968,8 +976,8 @@ dml_ensemble_rf<- function(y,x,d,data,sed=123) {
   message("-----------------------------------------------------------","\n")
   message("Double machine learning 2 (ensemble learning, 2-folds):","\n")
   message("Estimate, s.e., t-statistic, p.value, 95%lower, 95%upper","\n")
-  message(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
-              beAll-1.96*seAll,beAll+1.96*seAll),digits=4)
+  cat(cbind(theta=beAll,se.robust=seAll,t.value=tAll,pvalue=round(2*(1-pnorm(abs(beAll/seAll))),5),
+              beAll-1.96*seAll,beAll+1.96*seAll),"\n")
 
   message("t-statistic critial values: 90%=1.65, 95%=1.96, 99%=2.58","\n")
   message("-----------------------------------------------------------","\n")

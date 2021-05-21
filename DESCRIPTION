@@ -1,7 +1,7 @@
 Package: DMLLZU
 Type: Package
 Title: Double Machine Learning
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
           person("Lixiong", "Yang", email = "ylx@lzu.edu.cn",role ="aut"),
           person("Junchang", "Zhao",email = "zhaojch19@lzu.edu.cn", role = c("aut","cre")))
@@ -15,6 +15,6 @@ License: GPL (>= 2)
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-04-07 12:16:46 UTC; zhao
+Packaged: 2021-05-21 10:26:42 UTC; zhao
 Repository: CRAN
-Date/Publication: 2021-04-08 11:30:10 UTC
+Date/Publication: 2021-05-21 12:12:10 UTC
